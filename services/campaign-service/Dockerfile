@@ -1,15 +1,16 @@
 # ── Build stage ────────────────────────────────────────────────────────────────
-FROM eclipse-temurin:21-jdk-alpine AS builder
+FROM gradle:8.7-jdk21-alpine AS builder
 WORKDIR /app
 
 COPY gradle/ gradle/
-COPY gradlew settings.gradle build.gradle ./
-RUN ./gradlew dependencies --no-daemon 2>/dev/null || true
+COPY settings.gradle build.gradle ./
+
+RUN gradle dependencies --no-daemon 2>/dev/null || true
 
 COPY src/ src/
-RUN ./gradlew bootJar --no-daemon -x test
+RUN gradle bootJar --no-daemon -x test
 
-# ── Runtime stage ──────────────────────────────────────────────────────────────
+# ── Runtime stage ──────────────────────────────────────────────────────────
 FROM eclipse-temurin:21-jre-alpine AS runtime
 WORKDIR /app
 

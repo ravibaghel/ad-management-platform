@@ -1,4 +1,4 @@
-import { CampaignStatus } from '../types/campaign'
+import { CampaignStatus } from '../../types/campaign'
 import clsx from 'clsx'
 
 interface CampaignStatusBadgeProps {

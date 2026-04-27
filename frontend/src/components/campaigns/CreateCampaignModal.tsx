@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import { useForm, Controller } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { X } from 'lucide-react'
-import { createCampaignSchema, CreateCampaignFormData } from '../types/schemas'
-import { useCreateCampaign } from '../hooks/useCampaigns'
+import { createCampaignSchema, CreateCampaignFormData } from '../../types/schemas'
+import { useCreateCampaign } from '../../hooks/useCampaigns'
 
 interface CreateCampaignModalProps {
   isOpen: boolean
@@ -14,7 +14,7 @@ export default function CreateCampaignModal({ isOpen, onClose }: CreateCampaignM
   const createMutation = useCreateCampaign()
   const [apiError, setApiError] = useState<string | null>(null)
 
-  const { register, handleSubmit, control, formState: { errors }, reset } = useForm<CreateCampaignFormData>({
+  const { register, handleSubmit, formState: { errors }, reset } = useForm<CreateCampaignFormData>({
     resolver: zodResolver(createCampaignSchema),
   })
 
@@ -104,7 +104,7 @@ export default function CreateCampaignModal({ isOpen, onClose }: CreateCampaignM
                 {...register('dailyBudgetCap')}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
               />
-              {errors.dailyBudgetCap && <p className="mt-1 text-sm text-red-600">{errors.dailyBudgetCap.message}</p>}
+              {errors.dailyBudgetCap && <p className="mt-1 text-sm text-red-600">{(errors.dailyBudgetCap as any).message}</p>}
             </div>
           </div>
 
