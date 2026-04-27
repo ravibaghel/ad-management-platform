@@ -1,0 +1,65 @@
+# ── Java / Gradle ──────────────────────────────────────────────────────────────
+.gradle/
+build/
+*.class
+*.jar
+*.war
+*.ear
+out/
+target/
+.mtj.tmp/
+
+# ── Python ─────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+*.egg
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+coverage.xml
+
+# ── Node / Frontend ────────────────────────────────────────────────────────────
+node_modules/
+dist/
+.next/
+.nuxt/
+.cache/
+*.tsbuildinfo
+
+# ── Environment & Secrets (NEVER commit these) ─────────────────────────────────
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+secrets/
+
+# ── Docker ─────────────────────────────────────────────────────────────────────
+*.log
+docker-compose.override.yml
+
+# ── IDEs ───────────────────────────────────────────────────────────────────────
+.idea/
+*.iml
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+Thumbs.db
+
+# ── MinIO / local data volumes ─────────────────────────────────────────────────
+infra/data/

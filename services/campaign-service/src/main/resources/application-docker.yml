@@ -1,0 +1,5 @@
+# Overrides applied when SPRING_PROFILES_ACTIVE=docker
+# Nothing extra needed — all config is env-var driven already
+spring:
+  jpa:
+    show-sql: false
