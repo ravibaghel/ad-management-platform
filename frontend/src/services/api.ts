@@ -6,7 +6,7 @@ const campaignApi = axios.create({
 })
 
 // Mock mode for testing without backend
-const MOCK_MODE = true
+const MOCK_MODE = false
 
 if (MOCK_MODE) {
   campaignApi.interceptors.response.use(
